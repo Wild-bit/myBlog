@@ -39,5 +39,7 @@
     border-style: solid;
     border-color: transparent transparent transparent #000; /*左三角*/
 }
-
 ```
+# 关于事件冒泡和事件捕获
+
+> 参考 [你真的了解事件冒泡和事件捕获吗？](https://juejin.cn/post/6844904115428917255)
