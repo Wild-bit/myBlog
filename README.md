@@ -41,3 +41,17 @@
 }
 
 ```
+## 用CSS的clip-path实现不规则矩形
+```CSS
+.discount-btn{
+    width:129px;
+    height:48px;
+    background: linear-gradient(90deg, #ffa25e 0%, #fd6930 100%);
+    clip-path: polygon(0 0,100% 0%,75% 100%,0% 100%); // 上 x,y 右 x,y 下 x,y 左 x,y
+}
+```
+[clip-path](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clip-path)
+> polygon
+> 每一对在列表中的参数都代表了多边形顶点的坐标， xi 与 yi ，i代表顶点的编号，即，第i个顶点
+
+![斜角矩形](./img/clip-path-rect.jpg "rect")
