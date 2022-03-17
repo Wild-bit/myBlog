@@ -39,7 +39,6 @@
     border-style: solid;
     border-color: transparent transparent transparent #000; /*左三角*/
 }
-
 ```
 ## 用CSS的clip-path实现不规则矩形
 ```CSS
@@ -55,3 +54,6 @@
 > 每一对在列表中的参数都代表了多边形顶点的坐标， xi 与 yi ，i代表顶点的编号，即，第i个顶点
 
 ![斜角矩形](./img/clip-path-rect.jpg "rect")
+# 关于事件冒泡和事件捕获
+
+> 参考 [你真的了解事件冒泡和事件捕获吗？](https://juejin.cn/post/6844904115428917255)
