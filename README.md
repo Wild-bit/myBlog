@@ -57,6 +57,7 @@
 **实现效果：**
 
 ![斜角矩形](./img/CSS/clip-path-rect.jpg "rect")
+
 **利用border属性**
 ```CSS
 div {
