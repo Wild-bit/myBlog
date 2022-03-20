@@ -1,6 +1,6 @@
 # knowledgepoint
 
-记录前端知识点
+大家好，我是嘟嘟嘟，现在是一名在小厂担任前端工程师，这里是我总结的前端知识点，觉得有趣的话点个**star**,交流前端知识请添加微信：lai_1397119416
 
 # HTML 篇
 
@@ -41,6 +41,7 @@
 }
 ```
 ## 用CSS的clip-path实现不规则矩形
+**利用clip-path**
 ```CSS
 .discount-btn{
     width:129px;
@@ -53,7 +54,52 @@
 > polygon
 > 每一对在列表中的参数都代表了多边形顶点的坐标， xi 与 yi ，i代表顶点的编号，即，第i个顶点
 
-![斜角矩形](./img/clip-path-rect.jpg "rect")
-# 关于事件冒泡和事件捕获
+**实现效果：**
 
-> 参考 [你真的了解事件冒泡和事件捕获吗？](https://juejin.cn/post/6844904115428917255)
+![斜角矩形](./img/CSS/clip-path-rect.jpg "rect")
+**利用border属性**
+```CSS
+div {
+  width:0;
+  border-top:100px solid green;
+  border-left:150px solid blue;
+  border-right:100px solid transparent;
+}
+```
+**实现效果：**
+![斜角矩形](./img/CSS/border-rect.png "rect")
+> 缺点：颜色无法渐变
+
+## CSS实现立体圆柱
+
+```CSS
+.yuanzhu {
+    position: relative;
+    height: 54px;
+    width: 230px;
+    margin-top: 30px;
+    background: linear-gradient(180deg, #ffeab4 0%, #fff1d1 27%, #f8bb58 100%);
+    margin: 30px auto;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+  }
+
+  .yuanzhu::after {
+    position: absolute;
+    right: -10px;
+    content: '';
+    display: block;
+    width: 20px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #fcc35c 0%, #ab710e 100%);
+  }
+```
+**实现效果：**
+![立体圆柱](https://cdn.nlark.com/yuque/0/2021/png/1762737/1628495412978-93e8eac9-b542-413c-86d5-e100e861c210.png "圆柱")
+
+# JavaScript篇
+
+- [原型链](https://www.yuque.com/u1490968/laxlkg/un09cv/edit)
+- [你真的了解事件冒泡和事件捕获吗？](https://juejin.cn/post/6844904115428917255)
+- [实现简易Promise，支持异步调用](./Js/promise/index.md) 
