@@ -102,4 +102,5 @@ div {
 
 - [原型链](https://www.yuque.com/u1490968/laxlkg/un09cv/edit)
 - [你真的了解事件冒泡和事件捕获吗？](https://juejin.cn/post/6844904115428917255)
-- [实现简易Promise，支持异步调用](./Js/promise/index.md) 
+- [关于Map和Set](./Js/mapAndset/index.md)
+
