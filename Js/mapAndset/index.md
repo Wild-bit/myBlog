@@ -197,3 +197,23 @@ var arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, n
 console.log(unique(arr));
 // [1, "true", true, 15, false, undefined, null, NaN, "NaN", 0, "a", {…}, {…}]
 ```
+## Set的应用场景
+
+### 取数组的并集
+
+```js
+const arr1 = [1,2,3,4,5,6]
+const arr2 = [3,4,5,6,7,8]
+const mergeArr = [...new Set([...arr1,...arr2])] // 利用Set去重
+console.log(mergeArr) // [1,2,3,4,5,6,7,8]
+```
+
+### 取数组的交集
+
+```js
+const arr1 = [1,2,3,4,5,6]
+const arr2 = [3,4,5,6,7,8]
+const overlapArr = [...new Set(arr1)].filter(item => new Set(arr2).has(item))
+console.log(overlapArr) // [3,4,5,6]
+```
+

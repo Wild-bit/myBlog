@@ -102,9 +102,28 @@ div {
 
 ![立体圆柱](https://cdn.nlark.com/yuque/0/2021/png/1762737/1628495412978-93e8eac9-b542-413c-86d5-e100e861c210.png "圆柱")
 
-# JavaScript篇
+## 重绘和回流（重排）
 
-- [原型链](https://www.yuque.com/u1490968/laxlkg/un09cv/edit)
+- 重绘：当渲染树的元素外观（如颜色）发生改变，不影响布局时，产生重绘
+- 回流：当渲染树的元素的布局（如位置，尺寸，隐藏/显示）发生改变时，产生回流
+- 注意：JS获取Layout属性值（如：offsetLeft、scrollTop、getComputedStyle等）也会引起回流。因为浏览器需要通过回流计算最新值
+- 回流必定产生重绘，但重绘不一定引起回流
+
+**如何最小化重绘(repaint)和回流(reflow)**：
+
+- 需要要对元素进行复杂的操作时，可以先隐藏(display:"none")，操作完成后再显示
+- 需要创建多个DOM节点时，使用DocumentFragment创建完后一次性的加入document
+- 缓存Layout属性值，如：var left = elem.offsetLeft; 这样，多次使用 left 只产生一次回流
+- 尽量避免用table布局（table元素一旦触发回流就会导致table里所有的其它元素回流）
+- 避免使用css表达式(expression)，因为每次调用都会重新计算值（包括加载页面）
+- 尽量使用 css 属性简写，如：用 border 代替 border-width, border-style, border-color
+- 批量修改元素样式：elem.className 和 elem.style.cssText 代替 elem.style.xxx
+
+# JavaScript基础篇
+
+- [闭包](./Js/closure/index.md)
+- [作用域链](./Js/scopeChain/index.md)
+- [原型链](./Js/prototypeChain/index.md)
 - [你真的了解事件冒泡和事件捕获吗？](https://juejin.cn/post/6844904115428917255)
 - [关于Map和Set](./Js/mapAndset/index.md)
 
