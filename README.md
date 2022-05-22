@@ -124,13 +124,13 @@ div {
 # JavaScript基础篇
 
 - [闭包](https://github.com/Wild-bit/myBlog/issues/2)
-- [作用域链](./Js/scopeChain/index.md)
-- [原型链](./Js/prototypeChain/index.md)
+- [作用域链](https://github.com/Wild-bit/myBlog/issues/3)
+- [原型链](https://github.com/Wild-bit/myBlog/issues/4)
 - [你真的了解事件冒泡和事件捕获吗？](https://juejin.cn/post/6844904115428917255)
-- [关于Map和Set](./Js/mapAndset/index.md)
+- [关于Map和Set](https://github.com/Wild-bit/myBlog/issues/5)
 
 # 浏览器相关
 
-- [浏览器缓存](./浏览器相关/浏览器缓存机制.md)
-- [https为什么传输数据更安全](./浏览器相关/为什么需要HTTPS.md)
-- [负责域名解析的DNS服务](./浏览器相关/DNS域名解析.md)
+- [浏览器缓存](https://github.com/Wild-bit/myBlog/issues/6)
+- [https为什么传输数据更安全](https://github.com/Wild-bit/myBlog/issues/7)
+- [负责域名解析的DNS服务](https://github.com/Wild-bit/myBlog/issues/8)
