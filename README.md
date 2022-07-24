@@ -135,3 +135,8 @@ div {
 - [负责Web安全的HTTPS](https://github.com/Wild-bit/myBlog/issues/7)
 - [负责域名解析的DNS服务](https://github.com/Wild-bit/myBlog/issues/8)
 - [TCP/UDP](https://github.com/Wild-bit/myBlog/issues/9)
+
+# 算法
+
+- #### 动态规划
+  - [最长回文子串](https://github.com/Wild-bit/myBlog/issues/10)
