@@ -129,6 +129,10 @@ div {
 - [你真的了解事件冒泡和事件捕获吗？](https://juejin.cn/post/6844903834075021326)
 - [关于Map和Set](https://github.com/Wild-bit/myBlog/issues/5)
 
+# Vue源码篇
+- #### reactivity
+  - [reactivity](https://github.com/Wild-bit/myBlog/issues/10)
+
 # 计算机网络
 
 - [浏览器缓存](https://github.com/Wild-bit/myBlog/issues/6)
@@ -139,6 +143,6 @@ div {
 # 算法
 
 - #### 动态规划
-  - [回文子串](https://github.com/Wild-bit/myBlog/issues/11)
-  - [最长回文子串](https://github.com/Wild-bit/myBlog/issues/10)
-  - [鸡蛋掉落](https://github.com/Wild-bit/myBlog/issues/12)
+  - [回文子串](https://github.com/Wild-bit/myBlog/issues/12)
+  - [最长回文子串](https://github.com/Wild-bit/myBlog/issues/11)
+  - [最小路径和](https://github.com/Wild-bit/myBlog/issues/10)
