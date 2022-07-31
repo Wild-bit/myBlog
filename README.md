@@ -131,7 +131,7 @@ div {
 
 # Vue源码篇
 - #### reactivity
-  - [reactivity](https://github.com/Wild-bit/myBlog/issues/10)
+  - [reactivity](https://github.com/Wild-bit/myBlog/blob/main/Vue/Reactivity-Vue3/Reactivity.md)
 
 # 计算机网络
 
