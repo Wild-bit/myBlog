@@ -115,3 +115,52 @@ function trigger(key){
 let product = { price:5,quantity:2 }
 let user = { name: 'lzh',age: 18 }
 ```
+那我们还需要有一层表来存储对应的响应式对象。ES6有一个数据结构**weakMap**与**Map**相似，都是用来生成键值对的集合。区别在于**WeakMap**只接受对象作为键名，不接受其他类型的值作为键名。
+
+![reactivity](../../img/Vue/4.png)
+
+```js
+const targetMap = new WeakMap()
+const depsMap = new Map()
+/**
+* @param target 响应式对象
+* @param key
+*/
+function track(target,key){
+    let depsMap = targetMap.get(target)
+    if(!depsMap){
+        depsMap = new Map()
+        targetMap.set(target, depsMap)
+    }
+    let dep = depsMap.get(key) //获取到的是keyValue也就是effectFn
+    if(!dep){
+        depsMap.set(key,{dep = new Set()})
+    }
+    dep.add(effect)
+}
+function trigger(target,key){
+    let depsMap = targetMap.get(target)
+    if (!depsMap) return
+    let dep = depsMap.get(key)
+    if(dep){
+        dep.forEach((effect) => { effect() })
+    }
+}
+```
+代码示例：
+```js
+let product = { price: 5, quantity: 2 }
+let total = 0
+let effect = () => {
+  total = product.price * product.quantity
+}
+
+track(product, 'quantity')
+effect()
+console.log(total) // --> 10
+
+product.quantity = 3
+trigger(product, 'quantity')
+console.log(total) // --> 15
+```
+恭喜你，你已经学习了多个响应式对象的依赖收集和触发依赖，可以很自信的跟面试官battle了
