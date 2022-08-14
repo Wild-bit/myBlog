@@ -136,9 +136,11 @@ div {
 # 计算机网络
 
 - [浏览器缓存](https://github.com/Wild-bit/myBlog/issues/6)
+- [HTTP](https://github.com/Wild-bit/myBlog/issues/13)
 - [负责Web安全的HTTPS](https://github.com/Wild-bit/myBlog/issues/7)
 - [负责域名解析的DNS服务](https://github.com/Wild-bit/myBlog/issues/8)
 - [TCP/UDP](https://github.com/Wild-bit/myBlog/issues/9)
+
 
 # 算法
 

@@ -105,7 +105,7 @@ function trigger(key){
 ```js
     let product = {price:5,quantity:2}
     let effect = () = { product.price * product.quantity }
-    track('quantity')  //追踪依赖
+    track('quantity')  //追踪quantity
     effect() // total = 10
     product.quantity = 3
     trigger('quantity') // total = 15 重新执行了effect
