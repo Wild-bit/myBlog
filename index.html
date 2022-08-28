@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        window.onload = function () {
+            var round = document.getElementById('canvas')
+            console.log(round.getContext('2d'), 'canvas');
+            if (round.getContext("2d")) {
+                round.width = 500
+                round.height = 300
+                const context = round.getContext('2d')
+                storkeRoundRect(context, 10, 10, 100, 50, 10)
+            }
+        }
+        /**该方法用来绘制圆角矩形 
+         *@param cxt:canvas的上下文环境 
+         *@param x:左上角x轴坐标 
+         *@param y:左上角y轴坐标 
+         *@param width:矩形的宽度 
+         *@param height:矩形的高度 
+         *@param radius:圆的半径 
+         *@param lineWidth:线条粗细 
+         *@param strokeColor:线条颜色 
+         **/
+        function storkeRoundRect(cxt, x, y, width, height, radius, lineWidth, strokeColor) {
+            if (radius * 2 > width || 2 * radius > height) return
+            cxt.save()
+            cxt.translate(x, y); //设置初始点
+            drawRoundRectPath(cxt, width, height, radius)
+            cxt.lineWidth = lineWidth || 2; //若是给定了值就用给定的值否则给予默认值2  
+            cxt.strokeStyle = strokeColor || "#000";
+            cxt.stroke();
+            cxt.restore();
+
+        }
+
+        function drawRoundRectPath(cxt, width, height, radius) {
+            cxt.beginPath()
+            //从右下角顺时针绘制，弧度从0到1/2PI  
+            cxt.arc(width - radius, height - radius, radius, 0, Math.PI / 2)
+            //矩形下边线  
+            cxt.lineTo(radius, height);
+            //左下角圆弧，弧度从1/2PI到PI  
+            cxt.arc(radius, height - radius, radius, Math.PI / 2, Math.PI);
+
+            //矩形左边线  
+            cxt.lineTo(0, radius);
+
+            //左上角圆弧，弧度从PI到3/2PI  
+            cxt.arc(radius, radius, radius, Math.PI, Math.PI * 3 / 2);
+
+            // //上边线  
+            cxt.lineTo(width - radius, 0);
+
+            // //右上角圆弧  
+            cxt.arc(width - radius, radius, radius, Math.PI * 3 / 2, Math.PI * 2);
+
+            // //右边线  
+            // cxt.lineTo(width, height - radius);
+            cxt.closePath();
+        }
+    </script>
+</body>
+
+</html>
