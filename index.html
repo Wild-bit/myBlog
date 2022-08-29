@@ -35,38 +35,65 @@
             if (radius * 2 > width || 2 * radius > height) return
             cxt.save()
             cxt.translate(x, y); //设置初始点
-            drawRoundRectPath(cxt, width, height, radius)
+            drawRoundRectPath(cxt, x, y, width, height, radius)
             cxt.lineWidth = lineWidth || 2; //若是给定了值就用给定的值否则给予默认值2  
             cxt.strokeStyle = strokeColor || "#000";
             cxt.stroke();
             cxt.restore();
-
         }
 
-        function drawRoundRectPath(cxt, width, height, radius) {
-            cxt.beginPath()
-            //从右下角顺时针绘制，弧度从0到1/2PI  
-            cxt.arc(width - radius, height - radius, radius, 0, Math.PI / 2)
-            //矩形下边线  
-            cxt.lineTo(radius, height);
-            //左下角圆弧，弧度从1/2PI到PI  
-            cxt.arc(radius, height - radius, radius, Math.PI / 2, Math.PI);
+        var Point = function (x, y) {
+            return {
+                x: x,
+                y: y
+            };
+        };
+        // function drawRoundRectPath(cxt, width, height, radius) {
+        //     cxt.beginPath()
+        //     //从右下角顺时针绘制，弧度从0到1/2PI  
+        //     cxt.arc(width - radius, height - radius, radius, 0, Math.PI / 2)
+        //     //矩形下边线  
+        //     cxt.lineTo(radius, height);
+        //     //左下角圆弧，弧度从1/2PI到PI  
+        //     cxt.arc(radius, height - radius, radius, Math.PI / 2, Math.PI);
 
-            //矩形左边线  
-            cxt.lineTo(0, radius);
+        //     //矩形左边线  
+        //     cxt.lineTo(0, radius);
 
-            //左上角圆弧，弧度从PI到3/2PI  
-            cxt.arc(radius, radius, radius, Math.PI, Math.PI * 3 / 2);
+        //     //左上角圆弧，弧度从PI到3/2PI  
+        //     cxt.arc(radius, radius, radius, Math.PI, Math.PI * 3 / 2);
 
-            // //上边线  
-            cxt.lineTo(width - radius, 0);
+        //     // //上边线  
+        //     cxt.lineTo(width - radius, 0);
 
-            // //右上角圆弧  
-            cxt.arc(width - radius, radius, radius, Math.PI * 3 / 2, Math.PI * 2);
+        //     // //右上角圆弧  
+        //     cxt.arc(width - radius, radius, radius, Math.PI * 3 / 2, Math.PI * 2);
 
-            // //右边线  
-            // cxt.lineTo(width, height - radius);
-            cxt.closePath();
+        //     //右边线  
+        //     cxt.lineTo(width, height - radius);
+        //     cxt.closePath();
+        // }
+        function drawRoundRectPath(ctx, x, y, width, height, radius) {
+            var ptA = Point(x + radius, y);
+            var ptB = Point(x + width, y);
+            var ptC = Point(x + width, y + height);
+            var ptD = Point(x, y + height);
+            var ptE = Point(x, y);
+            ctx.beginPath()
+            // ctx.moveTo(ptA.x, ptA.y);
+            // ctx.arcTo(ptB.x, ptB.y, ptC.x, ptC.y, radius);
+            // ctx.arcTo(ptC.x, ptC.y, ptD.x, ptD.y, radius);
+            // ctx.arcTo(ptD.x, ptD.y, ptE.x, ptE.y, radius);
+            // ctx.arcTo(ptE.x, ptE.y, ptA.x, ptA.y, radius);/*  */
+            ctx.moveTo((x + width) / 2, y + height);
+            ctx.lineTo(x + width - radius, y + height);
+            ctx.arcTo(ptC.x, ptC.y, ptB.x, ptB.y, radius)
+            ctx.arcTo(ptB.x, ptB.y, ptA.x, ptA.y, radius)
+            ctx.arcTo(ptA.x, ptA.y, ptE.x, ptE.y, radius);
+            ctx.arcTo(ptE.x, ptE.y, ptD.x, ptD.y, radius);
+            ctx.arcTo(ptD.x, ptD.y, ptC.x, ptC.y, radius);
+            // ctx.lineTo(x + width - radius, y + height);
+            ctx.closePath()
         }
     </script>
 </body>
