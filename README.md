@@ -1,6 +1,6 @@
 # 前言
 
-大家好，我是lzh，目前是一名前端工程师，这里是我总结的前端知识点，觉得有趣的话点个**star**,交流前端知识请添加微信：lai_1397119416(附赠一份前端面试资料哦~)
+大家好，我是lzh，目前是一名前端工程师，这里是我总结的前端知识点，觉得有趣的话点个**star**,交流前端知识请添加微信：lai_1397119416
 
 **持续更新,敬请期待...**
 
@@ -123,6 +123,7 @@ div {
 
 # JavaScript基础篇
 
+- [var、let、const](https://github.com/Wild-bit/myBlog/issues/1)
 - [闭包](https://github.com/Wild-bit/myBlog/issues/2)
 - [作用域链](https://github.com/Wild-bit/myBlog/issues/3)
 - [原型链](https://github.com/Wild-bit/myBlog/issues/4)
