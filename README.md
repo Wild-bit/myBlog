@@ -127,6 +127,7 @@ div {
 - [闭包](https://github.com/Wild-bit/myBlog/issues/2)
 - [作用域链](https://github.com/Wild-bit/myBlog/issues/3)
 - [原型链](https://github.com/Wild-bit/myBlog/issues/4)
+- [js继承的方式](https://github.com/Wild-bit/myBlog/issues/19)
 - [你真的了解事件冒泡和事件捕获吗？](https://juejin.cn/post/6844903834075021326)
 - [关于Map和Set](https://github.com/Wild-bit/myBlog/issues/5)
 - [垃圾回收](https://github.com/Wild-bit/myBlog/issues/18)
