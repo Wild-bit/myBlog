@@ -68,6 +68,7 @@ console.log(cat.animalType,cat.name,cat.type,cat.getName())
 ```
 
 优势：既能实现父类构造函数的方法复用，又能够保证每个实例有自己的属性
+缺点：效率问题就是父类构造函数始终会被调用两次，一次在是创建子类原型时调用，另一次是在子类构造函数中调用
 
 ### 原型式继承
 > 基本思想：通过Object.create()创建新对象以及新对象定义的额外属性
@@ -111,7 +112,37 @@ let person = {
 let anotherPerson = createAnother(person); 
 anotherPerson.sayHi(); // "hi"
 ```
+缺点：使用寄生式继承来为对象添加函数，会由于不能做到函数复用造成效率降低，这一点与构造函数模式类似
 
+## 寄生式组合继承
 
+> 基本思想：使用借用构造函数继承方法的来继承父类属性，使用原型链继承的方法来继承父类的方法。
+> 不通过调用父类构造函数给子类原型赋值，而是取得父类原型的一个副本
 
-
+```js
+function objFactory(obj) {
+    function fn() {}
+    fn.prototype = obj
+    return new fn()
+}
+function inheritPrototype(child,person){
+    const person1 = objFactory(person.prototype)
+    person1.constructor = person
+    child.prototype = person1
+}
+function person(name){
+    this.name = name
+}
+person.prototype.sayName = function(){
+    console.log(this.name);
+}
+function child(name){
+    person.call(this,name)
+    this.age = 18
+}
+inheritPrototype(child,person)
+const child1 = new child('lzh')
+console.log(child1.sayName());
+```
+总结：通过创建一个父类构造函数的副本复制给子类的原型，在通过借用构造函数继承的方式来继承父类属性
+优点：复制了超类原型的副本，而不必调用超类构造函数；既能够实现函数复用，又能避免引用类型实例被子类共享，同时创建子类只需要调用一次超类构造函数，最佳解
