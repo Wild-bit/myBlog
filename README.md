@@ -131,7 +131,7 @@ div {
 - [你真的了解事件冒泡和事件捕获吗？](https://juejin.cn/post/6844903834075021326)
 - [关于Map和Set](https://github.com/Wild-bit/myBlog/issues/5)
 - [垃圾回收](https://github.com/Wild-bit/myBlog/issues/18)
-
+- [ES6解构赋值原理](https://github.com/Wild-bit/myBlog/issues/19)
 
 
 
