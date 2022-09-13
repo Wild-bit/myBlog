@@ -133,6 +133,8 @@ div {
 - [垃圾回收](https://github.com/Wild-bit/myBlog/issues/18)
 - [ES6解构赋值原理](https://github.com/Wild-bit/myBlog/issues/20)
 
+# JavaScript手写篇
+- [实现instanceOf](https://github.com/Wild-bit/myBlog/issues/21)
 
 
 
