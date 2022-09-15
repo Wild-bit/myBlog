@@ -1,7 +1,7 @@
-## 实现call方法
-先看看call的MDN
-**Function.prototype.call()**
-> call() 方法使用一个指定的 this 值和单独给出的一个或多个参数来调用一个函数。
+## 实现apply方法
+先看看apply的MDN
+**Function.prototype.apply()**
+> apply() 方法调用一个具有给定 this 值的函数，以及以一个数组（或一个类数组对象）的形式提供的参数
 
 使用：
 ```js
@@ -11,27 +11,28 @@ function Product(name, price) {
 }
 
 function Food(name, price) {
-  Product.call(this, name, price);
+  Product.apply(this, name, price);
   this.category = 'food';
 }
 
 console.log(new Food('cheese', 5).name);
 ```
 
-思路
-- call是构造函数的原型对象上的一个方法
-- 改变this的指向到函数并传入指定参数
-- 如果第一个参数不传，默认为window对象
+实现思路跟call一样，只不过传参不同，不了解的请看上篇：[实现call方法](https://github.com/Wild-bit/myBlog/issues/23)
 
 ```js
 /**
  * @prams context 上下文 也就是this要指向的函数
- * @paams args 传入的参数
+ * @parms args 传入的参数 Array
  * @return 返回结果
  */
-Function.prototype._call = function(context = window, ...args){
+Function.prototype._apply = function(context = window, args){
     if(typeof this !== 'function'){
         throw new Error('Type Error: this is not a function')
+    }
+    const isArray = args instanceof Array
+    if(!isArray){
+        throw new Error('Type Error: args is not a Array')
     }
     // 在context上加一个唯一值不影响context上的属性
     let key = Symbol('key')
@@ -50,7 +51,7 @@ function Product(name, price) {
 }
 
 function Food(name, price) {
-  Product._call(this, name, price);
+  Product._apply(this, name, price);
   this.category = 'food';
 }
 const text = new Food('麻辣烫',15)
