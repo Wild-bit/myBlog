@@ -136,6 +136,7 @@ div {
 # JavaScript手写篇
 - [实现instanceOf](https://github.com/Wild-bit/myBlog/issues/21)
 - [实现new的过程](https://github.com/Wild-bit/myBlog/issues/22)
+- [实现call方法](https://github.com/Wild-bit/myBlog/issues/23)
 
 
 
