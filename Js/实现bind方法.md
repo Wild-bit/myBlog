@@ -70,18 +70,3 @@ a.say() // person say
 var bindNormalFun = normalFun.myBind(obj, 'poetry2') // undefined
 bindNormalFun(12) // 普通函数name: poetry2 普通函数 age: 12 普通函数 this: {name: 'poetries', age: 18}
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```
