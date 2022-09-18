@@ -138,7 +138,7 @@ div {
 - [实现new的过程](https://github.com/Wild-bit/myBlog/issues/22)
 - [实现call方法](https://github.com/Wild-bit/myBlog/issues/23)
 - [实现apply方法](https://github.com/Wild-bit/myBlog/issues/24)
-
+- [实现bind方法](https://github.com/Wild-bit/myBlog/issues/25)
 
 # Vue源码篇
 - #### reactivity
