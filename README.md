@@ -139,7 +139,7 @@ div {
 - [实现call方法](https://github.com/Wild-bit/myBlog/issues/23)
 - [实现apply方法](https://github.com/Wild-bit/myBlog/issues/24)
 - [实现bind方法](https://github.com/Wild-bit/myBlog/issues/25)
-- [实现深浅拷贝](https://github.com/Wild-bit/myBlog/issues/27)
+- [实现浅拷贝](https://github.com/Wild-bit/myBlog/issues/27)
 # Vue源码篇
 - #### reactivity
   - [reactivity](https://github.com/Wild-bit/myBlog/blob/main/Vue/Reactivity-Vue3/Reactivity.md)
