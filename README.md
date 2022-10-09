@@ -141,6 +141,7 @@ div {
 - [实现bind方法](https://github.com/Wild-bit/myBlog/issues/25)
 - [实现浅拷贝](https://github.com/Wild-bit/myBlog/issues/27)
 - [实现深拷贝](https://github.com/Wild-bit/myBlog/issues/28)
+- [如何实现发布订阅模式](https://github.com/Wild-bit/myBlog/issues/29)
 # Vue源码篇
 - #### reactivity
   - [reactivity](https://github.com/Wild-bit/myBlog/blob/main/Vue/Reactivity-Vue3/Reactivity.md)
