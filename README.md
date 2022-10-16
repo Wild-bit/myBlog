@@ -143,6 +143,7 @@ div {
 - [实现深拷贝](https://github.com/Wild-bit/myBlog/issues/28)
 - [如何实现发布订阅模式](https://github.com/Wild-bit/myBlog/issues/29)
 - [实现防抖函数](https://github.com/Wild-bit/myBlog/issues/30)
+- [实现节流函数](https://github.com/Wild-bit/myBlog/issues/30)
 # Vue源码篇
 - #### reactivity
   - [reactivity](https://github.com/Wild-bit/myBlog/blob/main/Vue/Reactivity-Vue3/Reactivity.md)
