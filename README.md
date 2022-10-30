@@ -59,7 +59,15 @@
 - [TCP/UDP](https://github.com/Wild-bit/myBlog/issues/9)
   - [TCP三次握手](https://github.com/Wild-bit/myBlog/issues/15)
   - [TCP四次挥手](https://github.com/Wild-bit/myBlog/issues/16)
-  - [TCP的队首阻塞](https://github.com/Wild-bit/myBlog/issues/17)
+  <!-- - [TCP的队首阻塞](https://github.com/Wild-bit/myBlog/issues/17) -->
+
+- [浏览器渲染](https://github.com/Wild-bit/myBlog/issues/32)
+  - [构建DOM树](https://github.com/Wild-bit/myBlog/issues/32)
+  - [样式计算](https://github.com/Wild-bit/myBlog/issues/32)
+  - [布局阶段](https://github.com/Wild-bit/myBlog/issues/32)
+  - [图层的构建与绘制](https://github.com/Wild-bit/myBlog/issues/32)
+  - [栅格化（raster）操作](https://github.com/Wild-bit/myBlog/issues/32)
+- [从输入URL到页面展示中间发生了什么？](https://github.com/Wild-bit/myBlog/issues/33)
 
 # 性能优化
 - [优化项目打包体积](https://github.com/Wild-bit/myBlog/issues/14)
