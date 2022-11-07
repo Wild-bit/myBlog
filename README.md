@@ -66,6 +66,7 @@
 - [从输入URL到页面展示中间发生了什么？](https://github.com/Wild-bit/myBlog/issues/33)
 
 # 性能优化
+- [衡量网页的性能指标-Largest Contentful Paint最大内容绘制 (LCP)](https://github.com/Wild-bit/myBlog/issues/34)
 - [优化项目打包体积](https://github.com/Wild-bit/myBlog/issues/14)
 
 
