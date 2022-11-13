@@ -77,34 +77,32 @@ function reactive(obj){
     return new Proxy(obj,{
         get(target,key){
             const res = Reflect.get(target, key)
-            track(target, key)
             return res
         },
         set(target,key,value){
             const res = Reflect.set(target, key, value)
-            trigger(target, key, value)
             return res
         }
     })
 }
-// 由于本篇文章只涉及ref，这里指简单实现,更多内容请看reactive
-function track(traget,key){ 
 
+function isObject(val){
+    return typeof val !== null && typeof val === 'object'
 }
+
 
 class RefImpl {
     #value //用来存储值 #表示私有属性，外部访问不了该属性
     constructor(val){
-        this.#value = val
+        this.#value = isObject(val) ? reactive(val) : val
     }
     get value(){
         return this.#value
     }
     set value(newVal){
-        this.#value = newVal
+        this.#value = isObject(newVal) ? reactive(newVal) : newVal
     }
 }
-
 ```
 
 
