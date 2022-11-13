@@ -41,3 +41,70 @@ const count = myref(1)
 console.log(count.value) // 1
 ```
 这样我们访问.value属性就是接收的内部值了。
+在来看一个测试用例：
+```js
+const count = myref(1)
+// 第一次获取.value值
+console.log(count.value) // 1
+// 当设置.value的值为2时
+count.value = 2
+console.log(count.value) // 2 再次获取.value也相应变为2
+```
+目前上面的测试代码是无法通过的，因为我们还没有实现ref对原始值的响应式，那么如何实现ref的响应式呢？
+很简单，当我们第一次访问count.value时会触发RefImpl类的getter，而当我们设置count.value为2时就触发setter函数，我们将新的值重新赋值给私有属性，当再次访问时就是最新的值了
+```js
+class RefImpl {
+    #value //用来存储值 #表示私有属性，外部访问不了该属性
+    constructor(val){
+        this.#value = val
+    }
+    get value(){
+        return this.#value
+    }
+    set value(newVal){
+        this.#value = newVal
+    }
+}
+```
+这样就实现了ref对原始值的响应式操作了，其实就是利用了对象中属性的 **Descriptor** 对象上的**存值函数（getter）**和**取值函数（setter）**
+
+**那如果ref传入的是一个引用值类型（对象，数组）的呢？**
+如果一个对象、数组的话，那就需要借助reactive来实现响应式操作。
+```js
+// 首先需要判断传入的val是引用值类型还是原始值类型
+// 是则触发getter的时候执行track(val)，触发setter的时候执行trigger
+function reactive(obj){
+    return new Proxy(obj,{
+        get(target,key){
+            const res = Reflect.get(target, key)
+            track(target, key)
+            return res
+        },
+        set(target,key,value){
+            const res = Reflect.set(target, key, value)
+            trigger(target, key, value)
+            return res
+        }
+    })
+}
+// 由于本篇文章只涉及ref，这里指简单实现,更多内容请看reactive
+function track(traget,key){ 
+
+}
+
+class RefImpl {
+    #value //用来存储值 #表示私有属性，外部访问不了该属性
+    constructor(val){
+        this.#value = val
+    }
+    get value(){
+        return this.#value
+    }
+    set value(newVal){
+        this.#value = newVal
+    }
+}
+
+```
+
+
