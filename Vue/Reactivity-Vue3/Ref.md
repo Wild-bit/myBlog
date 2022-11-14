@@ -77,10 +77,12 @@ function reactive(obj){
     return new Proxy(obj,{
         get(target,key){
             const res = Reflect.get(target, key)
+            track(target,key)
             return res
         },
         set(target,key,value){
             const res = Reflect.set(target, key, value)
+            trigger(target,key,value)
             return res
         }
     })
@@ -90,19 +92,47 @@ function isObject(val){
     return typeof val !== null && typeof val === 'object'
 }
 
+function hasChanged(value, oldValue) {
+  return !Object.is(value, oldValue)
+}
 
+// 这里不考虑是不是浅层响应式(shallowRef),只关注基本逻辑，用#表示私有属性
 class RefImpl {
     #value //用来存储值 #表示私有属性，外部访问不了该属性
+    #dep //track需要dep来存放effect
+    #rawValue //用来比对value有没有发生变化
     constructor(val){
         this.#value = isObject(val) ? reactive(val) : val
+        this.#dep = new Set()
     }
     get value(){
+        this.#rawValue = this.#value
+        // 收集依赖
+        trackRefValue(this)
         return this.#value
     }
     set value(newVal){
-        this.#value = isObject(newVal) ? reactive(newVal) : newVal
+        // 值发生改变时才会触发依赖
+        if(hasChanged(newValue, this._rawValue)){
+            this.#value = isObject(newVal) ? reactive(newVal) : newVal
+            this._rawValue = newValue
+            // 触发依赖
+            triggerRefValue(this)
+        }
     }
 }
+
+function trackRefValue(ref){
+    // trackEffect函数作用就是添加effect
+    trackEffect(ref.dep)
+}
+function triggerRefValue(ref){
+    // triggerEffect函数的作用就是触发effect传入的fn
+    triggerEffect(ref.dep)
+}
+
 ```
+
+这样就完成了ref的基本实现了，关于effect和reactive的具体实现可以看我另一个仓库[mini-vue3](https://github.com/Wild-bit/mini-vue3)
 
 
