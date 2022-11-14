@@ -45,8 +45,9 @@
 - [如何实现发布订阅模式](https://github.com/Wild-bit/myBlog/issues/29)
 # Vue3源码篇
 - #### reactivity
-  - [实现一个简易的reactive](https://github.com/Wild-bit/myBlog/blob/main/Vue/Reactivity-Vue3/Reactivity.md)
-  - [实现一个简易的ref](https://github.com/Wild-bit/myBlog/blob/main/Vue/Reactivity-Vue3/Ref.md)
+  - [reactive的简单实现](https://github.com/Wild-bit/myBlog/blob/main/Vue/Reactivity-Vue3/Reactivity.md)
+  - [ref的简单实现](https://github.com/Wild-bit/myBlog/blob/main/Vue/Reactivity-Vue3/Ref.md)
+  - [computed的简单实现](https://github.com/Wild-bit/myBlog/blob/main/Vue/Reactivity-Vue3/computed.md)
 
 # 计算机网络
 
