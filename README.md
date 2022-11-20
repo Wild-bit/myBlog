@@ -81,5 +81,5 @@
   - [最小路径和](https://github.com/Wild-bit/myBlog/issues/10)
 
 
-# 其他
+# Hybird 
 - [Native与Web双向通信的桥梁-JsBridge](https://github.com/Wild-bit/myBlog/issues/26)
