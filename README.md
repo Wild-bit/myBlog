@@ -39,6 +39,7 @@
 - [实现深拷贝](https://github.com/Wild-bit/myBlog/issues/28)
 - [实现防抖函数](https://github.com/Wild-bit/myBlog/issues/30)
 - [实现节流函数](https://github.com/Wild-bit/myBlog/issues/30)
+- [Promise的简单实现](https://github.com/Wild-bit/myBlog/issues/36)
 
 # 设计模式
 - [单例模式](https://github.com/Wild-bit/myBlog/issues/31)
