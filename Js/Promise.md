@@ -65,3 +65,145 @@ class MyPromise {
 未实现：
 - 由于还没支持状态改变所以现在状态可以随意变，不符合 Promise 状态只能从等待态变化的规则。
 - 不支持链式调用
+
+## 加强版
+
+实现状态、链式调用
+- 定义一个status属性用于记录当前Promise 的状态
+- 定义两个数组用来存储then的两个回调 resolvedQueues 、rejectedQueues (将回调塞进数组中)
+- 完善then函数
+```js
+class MyPromise {
+    PENDING = 'pending'
+    RESOLVED = 'resolved'
+    REJECTED = 'rejected'
+    constructor (executor){
+        // 这里不适用this的原因是then函数返回的新的一个Promise
+        this.status = MyPromise.PENDING
+        this.value = null // 用于保存 resolve 的值
+        this.reason = null // 用于保存reject的值
+        this.onFulfilled = null;// 用于保存 then 的成功回调
+        this.onRejected = null;// 用于保存 then 的失败回调
+        // 用于保存 then 的成功回调数组
+        this.resolvedQueues = [];
+        // 用于保存 then 的失败回调数组
+        this.rejectedQueues = [];
+        // executor 的 resolve 参数
+        // 用于改变状态 并执行 then 中的失败回调
+        let resolve = value => {
+            // 当目前Promise 状态是Pending时，改为Resolve
+            if(this,status === MyPromise.PENDING){
+                this.value = value
+                this.status = MyPromise.RESOLVED
+                this.resolvedQueues.forEach(cb => cb(this.value))
+            }
+        }
+        // executor 的 reject 参数
+        // 用于改变状态 并执行 then 中的失败回调
+        let reject = reason => {
+            // 当状态是 pending 是，将 promise 的状态改为失败态
+            // 同时遍历执行 失败回调数组中的函数，将 reason 传入
+            if (this.status == MyPromise.PENDING) {
+                this.reason = reason;
+                this.status = MyPromise.REJECTED;
+                this.rejectedQueues.forEach(cb => cb(this.reason))
+            }
+        }
+        // 执行executor 将resolve、reject两个函数作为参数传入
+        try {
+            executor(resolve, reject);
+        } catch(err) {
+            reject(err);
+        }
+    }
+    // 接收两个参数onFulfilled 、onRejected
+    then(onFulfilled,onRejected){
+        // this.onFulfilled = onFulfilled
+        // this.onRejected = onRejected
+        // 实现透传
+        // 判断 onFulfilled和onRejected是否是函数，如果不是创建一个函数
+        onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
+        onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason}
+
+
+        // 当Promise当前状态为Pending时将回调调入对应数组中,当executor有异步代码时Promise当前状态为Pending
+        if(this.status === MyPromise.PENDING){
+            this.resolvedQueues.push(onFulfilled)
+            this.rejectedQueues.push(onRejected)
+        }
+         // 状态是成功态，直接就调用 onFulfilled 函数
+        if (this.status === MyPromise.RESOLVED) {
+        onFulfilled(this.value)
+        }
+        // 状态是成功态，直接就调用 onRejected 函数
+        if (this.status === MyPromise.REJECTED) {
+        onRejected(this.reason)
+        }
+    }
+}
+```
+
+### 支持链式调用（返回新的Promise实例）
+
+简单的做法可以直接在then函数中返回本身（this）但这样会导致当初始化实例时调用resolve后已将状态从pending -> resolved了所以后面value属性保存的一直是最开始的值
+
+示例代码如下：
+```js
+const p1 = new MyPromise((resolved, rejected) => {
+  resolved('resolved');  
+});
+
+p1.then((res) => {
+  console.log(res);
+  return 'then1';
+})
+.then((res) => {
+  console.log(res);
+  return 'then2';
+})
+.then((res) => {
+  console.log(res);
+  return 'then3';
+})
+
+// 预测输出：resolved -> then1 -> then2
+// 实际输出：resolved -> resolved -> resolved
+```
+改造代码（返回一个全新的Promise实例）
+```js
+then(onFulfilled,onRejected){
+    // this.onFulfilled = onFulfilled
+    // this.onRejected = onRejected
+    // 实现透传
+    // 判断 onFulfilled和onRejected是否是函数，如果不是创建一个函数
+    onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
+    onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason}
+    return new MyPromise((resolve, reject) => {
+        
+        // 状态是成功态，直接就调用 onFulfilled 函数
+        if (this.status === MyPromise.RESOLVED) {
+            let resolvedValue = onFulfilled(this.value)
+            resolve(resolvedValue)
+        }
+        // 状态是成功态，直接就调用 onRejected 函数
+        if (this.status === MyPromise.REJECTED) {
+            let rejectedValue = onRejected(this.reason)
+            reject(rejectedValue)
+        }
+        // 当Promise当前状态为Pending时将回调调入对应数组中,当executor有异步代码时Promise当前状态为Pending
+        if(this.status === MyPromise.PENDING){
+            this.resolvedQueues.push((value) => {
+                const res = onResolved(value);
+                resolve(res)
+            })
+            this.rejectedQueues.push((reason) => {
+                const res = onRejected(reason)
+                reject(res);
+            })
+        }
+        })
+
+    }
+```
+
+
