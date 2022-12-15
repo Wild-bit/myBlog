@@ -79,11 +79,11 @@
   - [回文子串](https://github.com/Wild-bit/myBlog/issues/12)
   - [最长回文子串](https://github.com/Wild-bit/myBlog/issues/11)
   - [最小路径和](https://github.com/Wild-bit/myBlog/issues/10)
-
+  - [两数之和](https://github.com/Wild-bit/myBlog/issues/37)<font color="#008000">-简单</font>
 
 # Hybird 
 - [Native与Web双向通信的桥梁-JsBridge](https://github.com/Wild-bit/myBlog/issues/26)
 
 
 # 工程化
-- [前端包管理器-npm、yarn、pnpm](https://github.com/Wild-bit/myBlog/issues/35)
+- [前端包管理器-npm、yarn、pnpm](https://github.com/Wild-bit/myBlog/issues/36)
