@@ -205,5 +205,7 @@ then(onFulfilled,onRejected){
 
     }
 ```
+<!-- TODO -->
+<!-- 异步的链式调用 -->
 
 
