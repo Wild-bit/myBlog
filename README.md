@@ -51,7 +51,7 @@
   - [computed的简单实现](https://github.com/Wild-bit/myBlog/blob/main/Vue/Reactivity-Vue3/computed.md)
 
 # 计算机网络
-
+- [事件循环-Event Loop](https://github.com/Wild-bit/myBlog/issues/38)
 - [浏览器缓存](https://github.com/Wild-bit/myBlog/issues/6)
 - [HTTP](https://github.com/Wild-bit/myBlog/issues/13)
 - [负责Web安全的HTTPS](https://github.com/Wild-bit/myBlog/issues/7)
