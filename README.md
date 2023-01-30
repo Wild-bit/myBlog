@@ -39,7 +39,7 @@
 - [实现深拷贝](https://github.com/Wild-bit/myBlog/issues/28)
 - [实现防抖函数](https://github.com/Wild-bit/myBlog/issues/30)
 - [实现节流函数](https://github.com/Wild-bit/myBlog/issues/30)
-- [Promise的简单实现](https://github.com/Wild-bit/myBlog/issues/36)
+- [Promise的简单实现](https://github.com/Wild-bit/myBlog/blob/main/Js/Promise.md)
 
 # 设计模式
 - [单例模式](https://github.com/Wild-bit/myBlog/issues/31)
@@ -51,7 +51,7 @@
   - [computed的简单实现](https://github.com/Wild-bit/myBlog/blob/main/Vue/Reactivity-Vue3/computed.md)
 
 # 计算机网络
-- [事件循环-Event Loop](https://github.com/Wild-bit/myBlog/issues/38)
+- [事件循环-Event Loop](https://github.com/Wild-bit/myBlog/issues/39)
 - [浏览器缓存](https://github.com/Wild-bit/myBlog/issues/6)
 - [HTTP](https://github.com/Wild-bit/myBlog/issues/13)
 - [负责Web安全的HTTPS](https://github.com/Wild-bit/myBlog/issues/7)
@@ -79,11 +79,12 @@
   - [回文子串](https://github.com/Wild-bit/myBlog/issues/12)
   - [最长回文子串](https://github.com/Wild-bit/myBlog/issues/11)
   - [最小路径和](https://github.com/Wild-bit/myBlog/issues/10)
-  - [两数之和](https://github.com/Wild-bit/myBlog/issues/37)<font color="#008000">-简单</font>
+  - [两数之和](https://github.com/Wild-bit/myBlog/issues/38)<font color="#008000">-简单</font>
 
 # Hybird 
 - [Native与Web双向通信的桥梁-JsBridge](https://github.com/Wild-bit/myBlog/issues/26)
-
+- [IOS(Safari)与Android(Chrome)的兼容性](https://github.com/Wild-bit/myBlog/issues/40)
 
 # 工程化
 - [前端包管理器-npm、yarn、pnpm](https://github.com/Wild-bit/myBlog/issues/36)
+
